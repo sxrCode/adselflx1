@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CrimeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.CrimeListActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
