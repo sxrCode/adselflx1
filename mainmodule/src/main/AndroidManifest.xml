@@ -24,6 +24,12 @@
         <activity
             android:name=".activity.CrimeListActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.BoxDrawingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.SunsetActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
