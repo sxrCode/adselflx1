@@ -3,11 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/adselflx1.iml" filepath="$PROJECT_DIR$/adselflx1.iml" />
-      <module fileurl="file://E:\repository\git\adselflx1\app\adselflx1-app.iml" filepath="E:\repository\git\adselflx1\app\adselflx1-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\document\git\myself\adselflx1\app\app.iml" filepath="E:\document\git\myself\adselflx1\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mainmodule/mainmodule.iml" filepath="$PROJECT_DIR$/mainmodule/mainmodule.iml" />
-      <module fileurl="file://E:\repository\git\adselflx1\mainmodule\mainmodule.iml" filepath="E:\repository\git\adselflx1\mainmodule\mainmodule.iml" />
     </modules>
   </component>
 </project>

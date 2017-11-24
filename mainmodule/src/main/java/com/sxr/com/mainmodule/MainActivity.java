@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.sxr.com.mainmodule.activity.BoxDrawingActivity;
 import com.sxr.com.mainmodule.activity.CrimeListActivity;
+import com.sxr.com.mainmodule.activity.SunsetActivity;
 import com.sxr.com.mainmodule.fragment.CrimentFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
 
     private Button mTrueButton;
+
+    private Button mFalseButtom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, CrimeListActivity.class);
+                intent.setClass(MainActivity.this, SunsetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mFalseButtom = findViewById(R.id.false_button);
+        mFalseButtom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, BoxDrawingActivity.class);
                 startActivity(intent);
             }
         });
