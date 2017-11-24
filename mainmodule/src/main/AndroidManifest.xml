@@ -30,6 +30,9 @@
         <activity
             android:name=".activity.SunsetActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ScrollActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
