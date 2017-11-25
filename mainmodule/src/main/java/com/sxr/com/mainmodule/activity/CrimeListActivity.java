@@ -1,6 +1,11 @@
 package com.sxr.com.mainmodule.activity;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatCheckBox;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.sxr.com.mainmodule.fragment.CrimeListFragment;
 
