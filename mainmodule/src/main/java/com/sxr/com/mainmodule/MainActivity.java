@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sxr.com.mainmodule.activity.ColorOptionsActivity;
+import com.sxr.com.mainmodule.activity.ContractDetailActivity;
 import com.sxr.com.mainmodule.activity.ScrollActivity;
 import com.sxr.com.mainmodule.activity.SunsetActivity;
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, ScrollActivity.class);
+                intent.setClass(MainActivity.this, ContractDetailActivity.class);
                 startActivity(intent);
             }
         });

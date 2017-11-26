@@ -32,7 +32,7 @@ public class ColorOptionsView extends LinearLayout {
         int valueColor = typedArray.getColor(R.styleable.Options_valueColor, getResources().getColor(R.color.blue_sky));
         typedArray.recycle();
 
-        setOrientation(LinearLayout.VERTICAL);
+        setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
