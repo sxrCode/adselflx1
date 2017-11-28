@@ -4,4 +4,18 @@
         <attr name="titleText" format="string"></attr>
         <attr name="valueColor" format="color"></attr>
     </declare-styleable>
+
+    <declare-styleable name="itemOptions">
+        <attr name="labelText" format="string"></attr>
+        <attr name="labelFontSize" format="dimension"></attr>
+        <attr name="labelFontColor" format="color"></attr>
+
+        <attr name="valueText" format="string"></attr>
+        <attr name="valueFontSize" format="dimension"></attr>
+        <attr name="valueFontColor" format="color"></attr>
+
+        <attr name="unitText" format="string"></attr>
+        <attr name="unitFontSize" format="dimension"></attr>
+        <attr name="unitFontColor" format="color"></attr>
+    </declare-styleable>
 </resources>

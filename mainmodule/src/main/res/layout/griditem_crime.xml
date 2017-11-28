@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.sxr.com.mainmodule.view.ItemKVView
+        android:id="@+id/crime_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:labelFontColor="@color/colorPrimary"
+        custom:labelFontSize="8sp"
+        custom:labelText="label"
+        custom:valueFontColor="@color/colorPrimary"
+        custom:valueFontSize="15sp"
+        custom:valueText="50,000.00" />
+
+</LinearLayout>

@@ -39,6 +39,9 @@
         <activity
             android:name=".activity.ContractDetailActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.CrimeDetailActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

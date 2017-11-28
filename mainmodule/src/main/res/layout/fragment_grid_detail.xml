@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/GridLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    custom:columnCount="2">
+
+
+    <com.sxr.com.mainmodule.view.ItemKVView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:labelFontColor="@color/colorPrimary"
+        custom:labelFontSize="8sp"
+        custom:labelText="label"
+        custom:layout_columnSpan="2"
+        custom:layout_columnWeight="1"
+        custom:valueFontColor="@color/colorPrimary"
+        custom:valueFontSize="12sp"
+        custom:valueText="50,000.00" />
+
+    <com.sxr.com.mainmodule.view.ItemKVView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:labelFontColor="@color/colorPrimary"
+        custom:labelFontSize="8sp"
+        custom:labelText="label"
+        custom:layout_columnSpan="1"
+        custom:layout_columnWeight="1"
+        custom:valueFontColor="@color/colorPrimary"
+        custom:valueFontSize="12sp"
+        custom:valueText="50,000.00" />
+
+    <com.sxr.com.mainmodule.view.ItemKVView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:labelFontColor="@color/colorPrimary"
+        custom:labelFontSize="8sp"
+        custom:labelText="label"
+        custom:layout_columnSpan="1"
+        custom:layout_columnWeight="1"
+        custom:valueFontColor="@color/colorPrimary"
+        custom:valueFontSize="12sp"
+        custom:valueText="50,000.00" />
+
+    <com.sxr.com.mainmodule.view.ItemKVView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:labelFontColor="@color/colorPrimary"
+        custom:labelFontSize="8sp"
+        custom:labelText="label"
+        custom:layout_columnSpan="2"
+        custom:layout_columnWeight="1"
+        custom:valueFontColor="@color/colorPrimary"
+        custom:valueFontSize="12sp"
+        custom:valueText="50,000.00" />
+
+
+</android.support.v7.widget.GridLayout>
