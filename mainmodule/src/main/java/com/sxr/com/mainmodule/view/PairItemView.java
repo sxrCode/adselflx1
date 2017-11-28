@@ -13,12 +13,12 @@ import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.utils.StringUtils;
 
 
-public class ItemKVView extends LinearLayout {
+public class PairItemView extends LinearLayout {
     private TextView mLabel;
     private TextView mValue;
     private TextView mUnit;
 
-    public ItemKVView(Context context, @Nullable AttributeSet attrs) {
+    public PairItemView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.itemOptions, 0, 0);

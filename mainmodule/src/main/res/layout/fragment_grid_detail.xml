@@ -8,7 +8,7 @@
     custom:columnCount="2">
 
 
-    <com.sxr.com.mainmodule.view.ItemKVView
+    <com.sxr.com.mainmodule.view.PairItemView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:labelFontColor="@color/colorPrimary"
@@ -20,7 +20,7 @@
         custom:valueFontSize="12sp"
         custom:valueText="50,000.00" />
 
-    <com.sxr.com.mainmodule.view.ItemKVView
+    <com.sxr.com.mainmodule.view.PairItemView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:labelFontColor="@color/colorPrimary"
@@ -32,7 +32,7 @@
         custom:valueFontSize="12sp"
         custom:valueText="50,000.00" />
 
-    <com.sxr.com.mainmodule.view.ItemKVView
+    <com.sxr.com.mainmodule.view.PairItemView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:labelFontColor="@color/colorPrimary"
@@ -44,7 +44,7 @@
         custom:valueFontSize="12sp"
         custom:valueText="50,000.00" />
 
-    <com.sxr.com.mainmodule.view.ItemKVView
+    <com.sxr.com.mainmodule.view.PairItemView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:labelFontColor="@color/colorPrimary"

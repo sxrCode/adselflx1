@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.model.Crime;
 import com.sxr.com.mainmodule.model.CrimeLab;
-import com.sxr.com.mainmodule.view.ItemKVView;
+import com.sxr.com.mainmodule.view.PairItemView;
 
 
 public class CrimeDetailFragmet extends Fragment {
@@ -55,7 +55,7 @@ public class CrimeDetailFragmet extends Fragment {
         }
 
         public void bind(Crime crime) {
-            ItemKVView item = itemView.findViewById(R.id.crime_item);
+            PairItemView item = itemView.findViewById(R.id.crime_item);
             item.setLabel("描述:");
             item.setValue(crime.getDescribe());
         }

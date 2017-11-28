@@ -6,7 +6,7 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <com.sxr.com.mainmodule.view.ItemKVView
+    <com.sxr.com.mainmodule.view.PairItemView
         android:id="@+id/crime_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
