@@ -28,9 +28,9 @@ public class PairItemView extends LinearLayout {
         int labelColor = typedArray.getColor(R.styleable.itemOptions_labelFontColor, getResources().getColor(R.color.blue_sky));
         int valueColor = typedArray.getColor(R.styleable.itemOptions_valueFontColor, getResources().getColor(R.color.blue_sky));
         int unitColor = typedArray.getColor(R.styleable.itemOptions_unitFontColor, getResources().getColor(R.color.blue_sky));
-        float labelFontSize = typedArray.getDimension(R.styleable.itemOptions_labelFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin));
-        float valueFontSize = typedArray.getDimension(R.styleable.itemOptions_valueFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin));
-        float unitFontSize = typedArray.getDimension(R.styleable.itemOptions_unitFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin));
+        float labelFontSize = typedArray.getDimension(R.styleable.itemOptions_labelFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin)) / 2;
+        float valueFontSize = typedArray.getDimension(R.styleable.itemOptions_valueFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin)) / 2;
+        float unitFontSize = typedArray.getDimension(R.styleable.itemOptions_unitFontSize, getResources().getDimension(R.dimen.activity_horizontal_margin)) / 2;
         typedArray.recycle();
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
