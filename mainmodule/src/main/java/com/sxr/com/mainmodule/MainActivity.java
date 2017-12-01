@@ -8,11 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.sxr.com.mainmodule.activity.BoxDrawingActivity;
 import com.sxr.com.mainmodule.activity.ColorOptionsActivity;
-import com.sxr.com.mainmodule.activity.ContractDetailActivity;
-import com.sxr.com.mainmodule.activity.CrimeDetailActivity;
-import com.sxr.com.mainmodule.activity.ScrollActivity;
-import com.sxr.com.mainmodule.activity.SunsetActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, CrimeDetailActivity.class);
+                intent.setClass(MainActivity.this, BoxDrawingActivity.class);
                 startActivity(intent);
             }
         });

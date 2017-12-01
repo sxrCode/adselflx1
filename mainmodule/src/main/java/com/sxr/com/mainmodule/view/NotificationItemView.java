@@ -1,32 +1,37 @@
 package com.sxr.com.mainmodule.view;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.sxr.com.mainmodule.R;
 
 
-public class DetailView extends ScrollView {
-    private FrameLayout mContent;
-    private DetailTitleView mTitleView;
+public class NotificationItemView extends LinearLayout {
+    private TextView mTitle;
 
-    public DetailView(Context context, AttributeSet attrs) {
+    private FrameLayout mContent;
+
+    public NotificationItemView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (inflater != null) {
-            inflater.inflate(R.layout.view_detail_container, this);
+            inflater.inflate(R.layout.view_item_notification, this);
         }
 
-        LinearLayout linearLayout = (LinearLayout) getChildAt(0);
-        mContent = linearLayout.findViewById(R.id.detail_content);
-        mTitleView = linearLayout.findViewById(R.id.detail_head);
+        mTitle = (TextView) getChildAt(0);
+        mContent = (FrameLayout) getChildAt(1);
+    }
+
+    public void setTitle(String title) {
+        mTitle.setText(title);
     }
 
     @Override
