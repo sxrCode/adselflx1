@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.sxr.com.mainmodule.activity.BoxDrawingActivity;
+import com.sxr.com.mainmodule.activity.CircleActivity;
 import com.sxr.com.mainmodule.activity.ColorOptionsActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, BoxDrawingActivity.class);
+                intent.setClass(MainActivity.this, CircleActivity.class);
                 startActivity(intent);
             }
         });
