@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
@@ -37,12 +38,28 @@ public class CircleView extends View {
         mArc2Paint.setStrokeJoin(Paint.Join.ROUND);
         mArc2Paint.setStrokeCap(Paint.Cap.ROUND);
         mArc2Paint.setStyle(Paint.Style.STROKE);
-        mArc2Paint.setShader(new SweepGradient(250, 250, Color.parseColor("#99A0B3"), Color.parseColor("#FAF9FC")));
+
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.e("CircleView measure", "widthMeasureSpec: " + widthMeasureSpec + "; heightMeasureSpec: " + heightMeasureSpec);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.e("CircleView layout: ", "left: " + left + " right: " + right + " top: " + top + " bottom: " + bottom);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        RectF oval = new RectF(100, 100, 400, 400);
+        float cx = getWidth() / 2;
+        float cy = getHeight() / 2;
+        mArc2Paint.setShader(new SweepGradient(cx, cy, Color.parseColor("#99A0B3"), Color.parseColor("#FAF9FC")));
+        RectF oval = new RectF(15, 10, getWidth() - 15, getHeight() - 10);
+        Log.e("CircleView ondraw: ", "lleft: " + oval.left + " lright: " + oval.right + " ltop: " + oval.top + " lbottom: " + oval.bottom);
         float propotion = 0;
         if (0 <= mRate && mRate <= 100) {
             propotion = sSUM_ANGLE * (mRate / 100);
@@ -53,7 +70,7 @@ public class CircleView extends View {
 
     public void setRate(float rate) {
         ValueAnimator animator = ValueAnimator.ofFloat(0, rate);
-        animator.setDuration(1000);
+        animator.setDuration(1500);
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
