@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 
 
 public class CircleView extends View {
@@ -71,7 +71,7 @@ public class CircleView extends View {
     public void setRate(float rate) {
         ValueAnimator animator = ValueAnimator.ofFloat(0, rate);
         animator.setDuration(1500);
-        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.setInterpolator(new AccelerateInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
