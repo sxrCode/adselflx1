@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sxr.com.mainmodule.activity.CircleActivity;
-import com.sxr.com.mainmodule.activity.DatePickerActivity;
+import com.sxr.com.mainmodule.swipemenu.SwipeMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void startOnFormal() {
         setContentView(R.layout.activity_main);
-        Log.e("MainActivity", "startOnFormal");
+        Log.e("SwipeMainActivity", "startOnFormal");
         mTrueButton = findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, DatePickerActivity.class);
+                intent.setClass(MainActivity.this, SwipeMainActivity.class);
                 startActivity(intent);
             }
         });

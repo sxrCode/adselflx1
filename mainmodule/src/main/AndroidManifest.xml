@@ -48,6 +48,18 @@
         <activity
             android:name=".activity.DatePickerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DeletedListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".swipemenu.SwipeMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".swipemenu.DifferentMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".swipemenu.SimpleActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
