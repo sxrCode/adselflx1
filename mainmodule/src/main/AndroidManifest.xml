@@ -25,6 +25,9 @@
             android:name=".activity.CrimeListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.AnimationTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.BoxDrawingActivity"
             android:screenOrientation="portrait" />
         <activity

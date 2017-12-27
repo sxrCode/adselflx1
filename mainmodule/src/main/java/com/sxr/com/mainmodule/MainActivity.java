@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.sxr.com.mainmodule.activity.AnimationTestActivity;
 import com.sxr.com.mainmodule.activity.CircleActivity;
 import com.sxr.com.mainmodule.swipemenu.SwipeMainActivity;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, CircleActivity.class);
+                intent.setClass(MainActivity.this, AnimationTestActivity.class);
                 startActivity(intent);
             }
         });
