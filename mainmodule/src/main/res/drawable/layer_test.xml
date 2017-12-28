@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/blue_sky"></item>
+    <item android:left="10dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ic_delete"></bitmap>
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="left"
+            android:src="@drawable/ic_delete"></bitmap>
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="right"
+            android:src="@drawable/ic_delete"></bitmap>
+    </item>
+
+
+</layer-list>

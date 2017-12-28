@@ -7,11 +7,13 @@
         android:id="@+id/action_left"
         android:orderInCategory="100"
         android:title="Left"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_good" />
 
     <item
         android:id="@+id/action_right"
         android:orderInCategory="100"
         android:title="Right"
-        app:showAsAction="never" />
+        app:showAsAction="withText"
+        android:icon="@drawable/ic_action_about" />
 </menu>
