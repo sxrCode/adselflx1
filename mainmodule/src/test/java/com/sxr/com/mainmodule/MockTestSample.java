@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -27,16 +26,10 @@ public class MockTestSample {
     public void readStringFromContext_LocalizedString() {
 
         List<String> list = mock(List.class);
-
         when(list.get(anyInt())).thenReturn("hello", "world");
-
         String result = list.get(0) + list.get(1);
-
         verify(list, times(2)).get(anyInt());
-
         Assert.assertEquals("helloworld", result);
-
-
     }
 
 
