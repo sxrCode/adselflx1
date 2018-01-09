@@ -27,4 +27,13 @@
             <enum name="right" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="LinearContainer_layout">
+        <attr name="layout_portion">
+            <enum name="head" value="0" />
+            <enum name="body" value="1" />
+            <enum name="foot" value="2" />
+        </attr>
+        <attr name="layout_weight" format="float" />
+    </declare-styleable>
 </resources>

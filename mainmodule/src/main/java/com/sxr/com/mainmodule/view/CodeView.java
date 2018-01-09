@@ -15,7 +15,7 @@ public class CodeView extends AppCompatEditText {
     private int mWidth;
 
     private int mCharCount;
-    private int mContentCount = 6;
+    private int mContentCount;
     private String mContent;
 
     private int widthSpace = 10;
@@ -27,6 +27,7 @@ public class CodeView extends AppCompatEditText {
         super(context, attrs);
         this.setBackgroundColor(Color.TRANSPARENT);
         this.setCursorVisible(false);
+        mContentCount = 6;
     }
 
     public void setCodeListener(ICodeListener codeListener) {
@@ -45,17 +46,18 @@ public class CodeView extends AppCompatEditText {
         if (text.toString().length() <= mContentCount) {
             mCharCount = text.toString().length();
             mContent = text.toString();
-            if (mCharCount == mContentCount && mCodeListener != null) {
-                mCodeListener.onFinish(text.toString());
+            if (mCharCount == mContentCount) {
+                if (mCodeListener != null) {
+                    mCodeListener.onFinish(text.toString());
+                }
             }
-        } else {
-            setEnabled(false);
         }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        drawLineStyle(canvas);
+        //drawLineStyle(canvas);
+        drawFrameStyle(canvas);
     }
 
     private void drawLineStyle(Canvas canvas) {

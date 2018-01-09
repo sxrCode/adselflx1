@@ -1,18 +1,18 @@
 package com.sxr.com.mainmodule;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.activity.AnimationTestActivity;
-import com.sxr.com.mainmodule.activity.CrimeListActivity;
-import com.sxr.com.mainmodule.swipemenu.SwipeMainActivity;
+import com.sxr.com.mainmodule.activity.CusContainerTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Logger.e("select true!");
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, CrimeListActivity.class);
+                intent.setClass(MainActivity.this, CusContainerTestActivity.class);
                 startActivity(intent);
             }
         });
