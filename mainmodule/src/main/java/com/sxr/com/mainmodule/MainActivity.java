@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.activity.AnimationTestActivity;
 import com.sxr.com.mainmodule.activity.CusContainerTestActivity;
+import com.sxr.com.mainmodule.activity.SceneTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Logger.e("select true!");
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, CusContainerTestActivity.class);
+                intent.setClass(MainActivity.this, SceneTestActivity.class);
                 startActivity(intent);
             }
         });

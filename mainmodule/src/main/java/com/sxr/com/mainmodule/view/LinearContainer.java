@@ -14,8 +14,7 @@ import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.R;
 
 
-public class LinearContainer extends ViewGroup {
-    private boolean ready = false;
+public class LinearContainer extends BaseCustomViewGroup {
 
     private FrameLayout mHeadLayout;
     private FrameLayout mBodyLayout;
@@ -23,20 +22,24 @@ public class LinearContainer extends ViewGroup {
 
     public LinearContainer(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Override
+    protected void onCreate(Context context, AttributeSet attrs) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (inflater != null) {
             inflater.inflate(R.layout.view_linear_container, this);
             mHeadLayout = findViewById(R.id.linear_container_head);
             mBodyLayout = findViewById(R.id.linear_container_body);
             mFootLayout = findViewById(R.id.linear_container_foot);
-            ready = true;
+
         }
     }
 
     @Override
     public void addView(View child, ViewGroup.LayoutParams params) {
 
-        if (ready && params != null && params instanceof LayoutParams) {
+        if (isReady && params != null && params instanceof LayoutParams) {
             LayoutParams lp = (LayoutParams) params;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) mBodyLayout.getLayoutParams();
             switch (lp.getPortion()) {
@@ -62,66 +65,10 @@ public class LinearContainer extends ViewGroup {
 
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        boolean isexactly = MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY && MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY;
-        Logger.e("onMeasure.isexactly: " + isexactly);
-
-        int maxWidth = 0;
-        int maxHeight = 0;
-
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View child = getChildAt(i);
-
-            measureChild(child, widthMeasureSpec, heightMeasureSpec);
-            maxWidth = Math.max(maxWidth, child.getMeasuredWidth());
-            maxHeight = Math.max(maxHeight, child.getMeasuredHeight());
-        }
-
-        setMeasuredDimension(getDefaultSize(maxWidth, widthMeasureSpec), getDefaultSize(maxHeight, heightMeasureSpec));
-
-        if (!isexactly) {
-            for (int i = 0; i < childCount; i++) {
-                View child = getChildAt(i);
-                ViewGroup.LayoutParams lp = child.getLayoutParams();
-                if (lp.height == ViewGroup.LayoutParams.MATCH_PARENT || lp.width == ViewGroup.LayoutParams.MATCH_PARENT) {
-                    int childHeightSpec = getChildMeasureSpec(heightMeasureSpec, 0, lp.height);
-                    if (lp.height == ViewGroup.LayoutParams.MATCH_PARENT) {
-                        childHeightSpec = MeasureSpec.makeMeasureSpec(getMeasuredHeight(), MeasureSpec.EXACTLY);
-                    }
-
-                    int childWidthSpec = getChildMeasureSpec(widthMeasureSpec, 0, lp.width);
-                    if (lp.width == ViewGroup.LayoutParams.MATCH_PARENT) {
-                        childWidthSpec = MeasureSpec.makeMeasureSpec(getMeasuredWidth(), MeasureSpec.EXACTLY);
-                    }
-
-                    child.measure(childWidthSpec, childHeightSpec);
-                }
-            }
-        }
-
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        final int count = getChildCount();
-
-        for (int i = 0; i < count; i++) {
-            final View child = getChildAt(i);
-            if (child.getVisibility() != GONE) {
-
-                final int width = child.getMeasuredWidth();
-                final int height = child.getMeasuredHeight();
-
-                child.layout(0, 0, width, height);
-            }
-        }
-    }
 
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-        if (ready) {
+        if (isReady) {
             return new LayoutParams(getContext(), attrs);
         } else {
             return super.generateLayoutParams(attrs);
@@ -132,14 +79,9 @@ public class LinearContainer extends ViewGroup {
     @Override
     protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
         if (lp instanceof LayoutParams) {
-            return lp;
+            return (LayoutParams) lp;
         }
         return super.generateLayoutParams(lp);
-    }
-
-    @Override
-    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return super.generateDefaultLayoutParams();
     }
 
     public static class LayoutParams extends FrameLayout.LayoutParams {

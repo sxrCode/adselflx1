@@ -66,6 +66,8 @@
         <activity
             android:name=".activity.CusContainerTestActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.SceneTestActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
