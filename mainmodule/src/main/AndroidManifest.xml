@@ -68,6 +68,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activity.SceneTestActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AnimatorActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

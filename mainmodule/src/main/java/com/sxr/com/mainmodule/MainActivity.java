@@ -3,7 +3,6 @@ package com.sxr.com.mainmodule;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -11,8 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.orhanobut.logger.Logger;
-import com.sxr.com.mainmodule.activity.AnimationTestActivity;
-import com.sxr.com.mainmodule.activity.CusContainerTestActivity;
+import com.sxr.com.mainmodule.activity.AnimatorActivity;
 import com.sxr.com.mainmodule.activity.SceneTestActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, AnimationTestActivity.class);
+                intent.setClass(MainActivity.this, AnimatorActivity.class);
                 startActivity(intent);
             }
         });
