@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sxr.com.mainmodule">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -66,10 +68,15 @@
         <activity
             android:name=".activity.CusContainerTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.SceneTestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AnimatorActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.SceneTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AnimatorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DialogTestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
