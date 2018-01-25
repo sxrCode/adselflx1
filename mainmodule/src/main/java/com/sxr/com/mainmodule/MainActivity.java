@@ -1,15 +1,11 @@
 package com.sxr.com.mainmodule;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //startOnFormal();
+        startOnFormal();
+        /*
         Button floatingButton = new Button(this);
         floatingButton.setText("this is sxr's phone");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
@@ -38,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 PixelFormat.TRANSPARENT
         );
 
-        Context newContext = createDisplayContext(getWindow().getWindowManager().getDefaultDisplay());
+        //Context newContext = createDisplayContext(getWindow().getWindowManager().getDefaultDisplay());
+        Context newContext = this;
         // flag 设置 Window 属性
         layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
         // type 设置 Window 类别（层级）
@@ -46,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         layoutParams.gravity = Gravity.CENTER;
         WindowManager windowManager = (WindowManager) newContext.getSystemService(WINDOW_SERVICE);
         windowManager.addView(floatingButton, layoutParams);
+        */
+
     }
 
     private void startOnFormal() {
