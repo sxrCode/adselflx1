@@ -5,11 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import com.sxr.com.mainmodule.model.Box;
 
@@ -40,7 +43,6 @@ public class BoxDrawingView extends View {
         mBoxPaint = new Paint();
         mBoxPaint.setColor(0xfff8efe0);
         mBoxPaint.setStrokeWidth(2);
-
         init(context, attrs);
     }
 

@@ -78,6 +78,7 @@
             android:name=".activity.DialogTestActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.PopupWinTestActivity" />
+        <activity android:name=".activity.SlideStudyActivity" />
     </application>
 
 </manifest>
