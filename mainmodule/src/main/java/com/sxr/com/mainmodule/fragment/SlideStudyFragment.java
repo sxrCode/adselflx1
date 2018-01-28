@@ -1,5 +1,6 @@
 package com.sxr.com.mainmodule.fragment;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -54,17 +55,25 @@ public class SlideStudyFragment extends Fragment {
         });
     }
 
-    private void transfer(float newOffset) {
+    private void transfer(int newOffset) {
         if (mContainerLat != null) {
-            mContainerLat.move((int) newOffset);
+            ValueAnimator valueAnimator = ValueAnimator.ofInt(mContainerLat.getOldOffset(), newOffset).setDuration(200);
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    int offset = (int) animation.getAnimatedValue();
+                    mContainerLat.move(offset);
+                }
+            });
+            valueAnimator.start();
         }
     }
 
-    private float addOffset(float add) {
+    private int addOffset(int add) {
         return mContainerLat.getOldOffset() + add;
     }
 
-    private float detractOffset(float detract) {
+    private int detractOffset(int detract) {
         return mContainerLat.getOldOffset() - detract;
     }
 

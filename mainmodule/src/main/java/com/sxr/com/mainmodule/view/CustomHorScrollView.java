@@ -1,10 +1,10 @@
 package com.sxr.com.mainmodule.view;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -28,24 +28,46 @@ public class CustomHorScrollView extends FrameLayout {
     private void init() {
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Logger.e("execute onTouchEvent! " + event.getAction());
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_MOVE:
+
+                Logger.e("rawX: " + event.getRawX() + "; x: " + event.getX());
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+
+    @Override
+    public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        if (disallowIntercept) {
+            Logger.e("disallowIntercept!");
+        }
+        super.requestDisallowInterceptTouchEvent(disallowIntercept);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev) || (MotionEvent.ACTION_MOVE == ev.getAction());
+    }
+
+    @Override
+    public boolean shouldDelayChildPressedState() {
+        return true;
+    }
+
     public void move(int newOffset) {
         Logger.e("mOldOffset: " + mOldOffset + "; newOffset: " + newOffset);
         if (mContentView != null) {
-            ValueAnimator valueAnimator = ValueAnimator.ofInt(mOldOffset, newOffset).setDuration(200);
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    int offset = (Integer) animation.getAnimatedValue();
-                    if (offset < 0 || offset > mMaxRight) {
+            if (newOffset < 0 || newOffset > mMaxRight) {
 
-                    } else {
-                        scrollTo(offset, 0);
-                        mOldOffset = offset;
-                    }
-                }
-            });
-
-            valueAnimator.start();
+            } else {
+                scrollTo(newOffset, 0);
+                mOldOffset = newOffset;
+            }
         }
     }
 
