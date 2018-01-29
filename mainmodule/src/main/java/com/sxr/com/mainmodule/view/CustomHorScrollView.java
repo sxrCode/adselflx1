@@ -8,8 +8,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.OverScroller;
 
 import com.orhanobut.logger.Logger;
+import com.sxr.com.mainmodule.utils.TouchEventUtils;
 
 
 public class CustomHorScrollView extends FrameLayout {
@@ -19,6 +21,10 @@ public class CustomHorScrollView extends FrameLayout {
 
     private int mMaxRight = 0;
 
+    private float oldX = 0;
+
+    private OverScroller mScroller;
+
     public CustomHorScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
@@ -26,32 +32,32 @@ public class CustomHorScrollView extends FrameLayout {
     }
 
     private void init() {
+        mScroller = new OverScroller(getContext());
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Logger.e("execute onTouchEvent! " + event.getAction());
+        TouchEventUtils.clacifyAction(event, "CustomHorScrollView onTouchEvent");
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
-
-                Logger.e("rawX: " + event.getRawX() + "; x: " + event.getX());
+                int newX = (int) event.getX();
+                move((int) (mOldOffset - newX + oldX));
+                Logger.e("offset: " + (mOldOffset - newX + oldX));
+                oldX = newX;
                 break;
+
+            case MotionEvent.ACTION_DOWN:
+                oldX = event.getX();
+                return true;
+
         }
         return super.onTouchEvent(event);
     }
 
-
     @Override
-    public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-        if (disallowIntercept) {
-            Logger.e("disallowIntercept!");
-        }
-        super.requestDisallowInterceptTouchEvent(disallowIntercept);
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return super.onInterceptTouchEvent(ev) || (MotionEvent.ACTION_MOVE == ev.getAction());
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        TouchEventUtils.clacifyAction(ev, "CustomHorScrollView dispatchTouchEvent");
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
