@@ -4,14 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 
 import com.orhanobut.logger.Logger;
-import com.sxr.com.mainmodule.utils.TouchEventUtils;
 
 
 public class CustomHorScrollView extends FrameLayout {
@@ -23,7 +24,12 @@ public class CustomHorScrollView extends FrameLayout {
 
     private float oldX = 0;
 
+    private int mSpaceWidth = 240;
+
     private OverScroller mScroller;
+    private VelocityTracker mVelocityTracker;
+
+    private GestureDetector mDetector;
 
     public CustomHorScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -33,22 +39,78 @@ public class CustomHorScrollView extends FrameLayout {
 
     private void init() {
         mScroller = new OverScroller(getContext());
+        mVelocityTracker = VelocityTracker.obtain();
+
+        mDetector = new GestureDetector(getContext(), new GestureDetector.OnGestureListener() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                Logger.e("mDetector onDown!");
+                return false;
+            }
+
+            @Override
+            public void onShowPress(MotionEvent e) {
+                Logger.e("mDetector onShowPress!");
+            }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                Logger.e("mDetector onSingleTapUp!");
+                return false;
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                Logger.e("mDetector onScroll!");
+                return false;
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+                Logger.e("mDetector onLongPress!");
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                Logger.e("mDetector onFling!");
+                return false;
+            }
+        });
+
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        TouchEventUtils.clacifyAction(event, "CustomHorScrollView onTouchEvent");
+        //TouchEventUtils.clacifyAction(event, "CustomHorScrollView onTouchEvent");
+        //mDetector.onTouchEvent(event);
+        mVelocityTracker.addMovement(event);
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
                 int newX = (int) event.getX();
                 move((int) (mOldOffset - newX + oldX));
-                Logger.e("offset: " + (mOldOffset - newX + oldX));
+                //Logger.e("offset: " + (mOldOffset - newX + oldX));
                 oldX = newX;
                 break;
 
             case MotionEvent.ACTION_DOWN:
                 oldX = event.getX();
                 return true;
+            case MotionEvent.ACTION_UP:
+                // 当手指抬起时，根据当前的滚动值来判定应该滚动到哪个子控件的界面
+                mVelocityTracker.computeCurrentVelocity(1000);
+                Logger.e("velocityX: " + mVelocityTracker.getXVelocity());
+                if (Math.abs(mVelocityTracker.getXVelocity()) > 1000) {
+                    mScroller.fling((int) getScrollX(), 0, -(int) mVelocityTracker.getXVelocity(), 0, 0, mMaxRight, 0, 0, 120, 0);
+                } else {
+                    int scrollx = getScrollX();
+                    int b = (scrollx + (mSpaceWidth / 2)) / mSpaceWidth;
+                    mScroller.startScroll(getScrollX(), 0, mSpaceWidth * b - getScrollX(), 0);
+                    Logger.e("c: " + (scrollx + (mSpaceWidth / 2)) + "; b: " + b + "; scrollx: " + scrollx);
+                    // 第二步，调用startScroll()方法来初始化滚动数据并刷新界面
+                    //mScroller.startScroll(getScrollX(), 0, dx, 0);
+                }
+                invalidate();
+                break;
 
         }
         return super.onTouchEvent(event);
@@ -56,13 +118,8 @@ public class CustomHorScrollView extends FrameLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        TouchEventUtils.clacifyAction(ev, "CustomHorScrollView dispatchTouchEvent");
+        //TouchEventUtils.clacifyAction(ev, "CustomHorScrollView dispatchTouchEvent");
         return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean shouldDelayChildPressedState() {
-        return true;
     }
 
     public void move(int newOffset) {
@@ -75,6 +132,28 @@ public class CustomHorScrollView extends FrameLayout {
                 mOldOffset = newOffset;
             }
         }
+    }
+
+    @Override
+    public void computeScroll() {
+        // 第三步，重写computeScroll()方法，并在其内部完成平滑滚动的逻辑
+        if (mScroller.computeScrollOffset()) {
+            //Logger.e("getCurrX: " + mScroller.getCurrX());
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            mOldOffset = mScroller.getCurrX();
+            invalidate();
+        } else {
+            /*
+            int scrollx = getScrollX();
+            if ((scrollx + (mSpaceWidth / 2)) % mSpaceWidth != 0) {
+                int b = (scrollx + (mSpaceWidth / 2)) / mSpaceWidth;
+                mScroller.startScroll(getScrollX(), 0, mSpaceWidth * b - getScrollX(), 0);
+                invalidate();
+              */
+        
+
+        }
+
     }
 
     public int getOldOffset() {
