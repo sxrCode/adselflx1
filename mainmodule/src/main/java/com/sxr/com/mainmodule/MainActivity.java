@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.orhanobut.logger.Logger;
-import com.sxr.com.mainmodule.activity.DialogTestActivity;
+import com.sxr.com.mainmodule.activity.CrimePagerActivity;
 import com.sxr.com.mainmodule.activity.SlideStudyActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, DialogTestActivity.class);
+                intent.setClass(MainActivity.this, CrimePagerActivity.class);
                 startActivity(intent);
             }
         });

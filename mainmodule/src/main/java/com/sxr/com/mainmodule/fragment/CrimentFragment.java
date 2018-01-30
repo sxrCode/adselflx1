@@ -11,10 +11,6 @@ import android.widget.TextView;
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.model.Crime;
 
-/**
- * Created by Administrator on 2017/11/16.
- */
-
 public class CrimentFragment extends Fragment {
 
     private Crime mCrime;
@@ -23,6 +19,13 @@ public class CrimentFragment extends Fragment {
     private TextView mCrimeId;
     private TextView mCrimeDes;
 
+    public static CrimentFragment newInstanse(Crime crime) {
+        CrimentFragment crimentFragment = new CrimentFragment();
+        if (crime != null) {
+            crimentFragment.setCrime(crime);
+        }
+        return crimentFragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

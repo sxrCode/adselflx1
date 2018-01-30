@@ -1,13 +1,18 @@
 package com.sxr.com.mainmodule.model;
 
-/**
- * Created by Administrator on 2017/11/16.
- */
 
 public class Crime {
 
     private String mDescribe;
     private String mCrimeId;
+
+    public Crime(String describe, String id) {
+        this.mCrimeId = id;
+        this.mDescribe = describe;
+    }
+
+    public Crime() {
+    }
 
     public String getDescribe() {
         return mDescribe;

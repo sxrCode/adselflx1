@@ -106,8 +106,6 @@ public class CustomHorScrollView extends FrameLayout {
                     int b = (scrollx + (mSpaceWidth / 2)) / mSpaceWidth;
                     mScroller.startScroll(getScrollX(), 0, mSpaceWidth * b - getScrollX(), 0);
                     Logger.e("c: " + (scrollx + (mSpaceWidth / 2)) + "; b: " + b + "; scrollx: " + scrollx);
-                    // 第二步，调用startScroll()方法来初始化滚动数据并刷新界面
-                    //mScroller.startScroll(getScrollX(), 0, dx, 0);
                 }
                 invalidate();
                 break;
@@ -149,8 +147,8 @@ public class CustomHorScrollView extends FrameLayout {
                 int b = (scrollx + (mSpaceWidth / 2)) / mSpaceWidth;
                 mScroller.startScroll(getScrollX(), 0, mSpaceWidth * b - getScrollX(), 0);
                 invalidate();
-              */
-        
+            */
+
 
         }
 

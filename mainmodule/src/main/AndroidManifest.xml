@@ -79,6 +79,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activity.PopupWinTestActivity" />
         <activity android:name=".activity.SlideStudyActivity" />
+        <activity android:name=".activity.CrimePagerActivity" />
     </application>
 
 </manifest>
