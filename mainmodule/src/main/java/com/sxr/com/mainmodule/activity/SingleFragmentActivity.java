@@ -7,10 +7,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sxr.com.mainmodule.R;
+import com.sxr.com.mainmodule.event.CommonEvent;
 
-/**
- * Created by Administrator on 2017/11/16.
- */
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
     @Override
@@ -24,6 +25,30 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
     }
 
     protected abstract Fragment getFragment();
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus eventBus = EventBus.getDefault();
+        if (!eventBus.isRegistered(this)) {
+            eventBus.register(this);
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus eventBus = EventBus.getDefault();
+        if (!eventBus.isRegistered(this)) {
+            eventBus.unregister(this);
+        }
+    }
+
+    @Subscribe
+    public void onCommonMsg(CommonEvent event) {
+
+    }
 
 
 }

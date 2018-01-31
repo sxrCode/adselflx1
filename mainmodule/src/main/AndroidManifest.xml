@@ -80,6 +80,7 @@
         <activity android:name=".activity.PopupWinTestActivity" />
         <activity android:name=".activity.SlideStudyActivity" />
         <activity android:name=".activity.CrimePagerActivity" />
+        <activity android:name=".activity.EventBusActivity" />
     </application>
 
 </manifest>

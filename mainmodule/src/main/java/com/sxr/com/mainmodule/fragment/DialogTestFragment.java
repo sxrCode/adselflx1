@@ -133,7 +133,6 @@ public class DialogTestFragment extends Fragment {
         mButtonE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 PayBottomDialog dialog = new PayBottomDialog(activity);
                 View content = View.inflate(dialog.getContext(), R.layout.content_pay_code, null);
                 //dialog.setContent(content);
