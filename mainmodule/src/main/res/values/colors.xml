@@ -8,4 +8,6 @@
     <color name="sunset_sky">#ec8100</color>
     <color name="night_sky">#05192e</color>
     <color name="sea">#2F375E</color>
+
+    <color name="window_background">#FFF5F5F5</color>
 </resources>

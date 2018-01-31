@@ -10,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.R;
-import com.sxr.com.mainmodule.activity.DialogTestActivity;
+import com.sxr.com.mainmodule.activity.CoordinateTestActivity;
 import com.sxr.com.mainmodule.activity.EventBusActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
@@ -48,9 +47,8 @@ public class MainFragment extends Fragment {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Logger.e("select true!");
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), DialogTestActivity.class);
+                intent.setClass(getActivity(), CoordinateTestActivity.class);
                 startActivity(intent);
             }
         });
