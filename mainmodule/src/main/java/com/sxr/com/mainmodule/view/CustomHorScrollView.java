@@ -33,7 +33,6 @@ public class CustomHorScrollView extends FrameLayout {
 
     public CustomHorScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
         init();
     }
 
@@ -94,7 +93,6 @@ public class CustomHorScrollView extends FrameLayout {
 
             case MotionEvent.ACTION_DOWN:
                 oldX = event.getX();
-                return true;
             case MotionEvent.ACTION_UP:
                 // 当手指抬起时，根据当前的滚动值来判定应该滚动到哪个子控件的界面
                 mVelocityTracker.computeCurrentVelocity(1000);
@@ -108,7 +106,7 @@ public class CustomHorScrollView extends FrameLayout {
                     Logger.e("c: " + (scrollx + (mSpaceWidth / 2)) + "; b: " + b + "; scrollx: " + scrollx);
                 }
                 invalidate();
-                break;
+                return true;
 
         }
         return super.onTouchEvent(event);

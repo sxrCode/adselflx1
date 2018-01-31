@@ -22,7 +22,7 @@ import com.flyco.dialog.widget.MaterialDialog;
 import com.flyco.dialog.widget.NormalDialog;
 import com.flyco.dialog.widget.NormalListDialog;
 import com.sxr.com.mainmodule.R;
-import com.sxr.com.mainmodule.view.CustomBaseDialog;
+import com.sxr.com.mainmodule.view.PayBottomDialog;
 
 import java.util.ArrayList;
 
@@ -133,7 +133,10 @@ public class DialogTestFragment extends Fragment {
         mButtonE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CustomBaseDialog dialog = new CustomBaseDialog(activity, false);
+
+                PayBottomDialog dialog = new PayBottomDialog(activity);
+                View content = View.inflate(dialog.getContext(), R.layout.content_pay_code, null);
+                //dialog.setContent(content);
                 dialog.show();
             }
         });

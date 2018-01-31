@@ -1,12 +1,16 @@
 package com.sxr.com.mainmodule.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.InputFilter;
 import android.util.AttributeSet;
+
+import com.sxr.com.mainmodule.R;
 
 
 public class CodeView extends AppCompatEditText {
@@ -14,12 +18,14 @@ public class CodeView extends AppCompatEditText {
     private int mHeight;
     private int mWidth;
 
-    private int mCharCount;
-    private int mContentCount;
+    private int mCharCount; //当前字符数量
+    private int mContentCount; //可输入字符总数
     private String mContent;
 
     private int widthSpace = 10;
     private int heightSpacce = 10;
+
+    private int mType = 1;
 
     private ICodeListener mCodeListener;
 
@@ -27,7 +33,18 @@ public class CodeView extends AppCompatEditText {
         super(context, attrs);
         this.setBackgroundColor(Color.TRANSPARENT);
         this.setCursorVisible(false);
+
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CodeView, 0, 0);
+        int amount = typedArray.getInt(R.styleable.CodeView_amount, 6);
+        mType = typedArray.getInt(R.styleable.CodeView_type, 1);
+        typedArray.recycle();
+
         mContentCount = 6;
+        if (amount <= 8 && amount >= 4) {
+            mContentCount = amount;
+        }
+
+        setFilters(new InputFilter[]{new InputFilter.LengthFilter(mContentCount)});
     }
 
     public void setCodeListener(ICodeListener codeListener) {
@@ -56,8 +73,11 @@ public class CodeView extends AppCompatEditText {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //drawLineStyle(canvas);
-        drawFrameStyle(canvas);
+        if (mType == 2) {
+            drawFrameStyle(canvas);
+        } else {
+            drawLineStyle(canvas);
+        }
     }
 
     private void drawLineStyle(Canvas canvas) {
@@ -73,6 +93,9 @@ public class CodeView extends AppCompatEditText {
 
             int linex = widthSpace + ((mWidth / mContentCount) * i) + (lineSpace / 2);
             int liney = heightSpacce + mHeight;
+            if (i == 0) {
+                linex = 0;
+            }
             canvas.drawLine(linex, liney, linex + lineWidth, liney, linePaint);
         }
 

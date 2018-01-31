@@ -36,4 +36,12 @@
         </attr>
         <attr name="layout_weight" format="float" />
     </declare-styleable>
+
+    <declare-styleable name="CodeView">
+        <attr name="amount" format="integer"></attr>
+        <attr name="type" format="enum">
+            <enum name="line" value="1"></enum>
+            <enum name="frame" value="2"></enum>
+        </attr>
+    </declare-styleable>
 </resources>

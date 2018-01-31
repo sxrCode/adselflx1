@@ -2,6 +2,7 @@ package com.sxr.com.mainmodule.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -19,6 +20,8 @@ import java.util.List;
 public class CrimePagerActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
+    private TabLayout mTabLayout;
+
     private List<Crime> mCrimes;
 
     @Override
@@ -50,7 +53,15 @@ public class CrimePagerActivity extends AppCompatActivity {
             public int getCount() {
                 return mCrimes.size();
             }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mCrimes.get(position).getDescribe();
+            }
         });
         mViewPager.setCurrentItem(2);
+        mTabLayout = findViewById(R.id.tabs);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setTabTextColors(getResources().getColor(android.R.color.black), getResources().getColor(android.R.color.holo_blue_dark));
     }
 }
