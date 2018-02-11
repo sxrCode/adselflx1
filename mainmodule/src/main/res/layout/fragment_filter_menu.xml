@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/con1_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="conditon1" />
+
+        <Button
+            android:id="@+id/con2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="conditon2" />
+
+        <Button
+            android:id="@+id/con3_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="conditon3" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/con_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue_sky"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:text="a;sdkgjaiop"
+            />
+    </FrameLayout>
+
+</LinearLayout>

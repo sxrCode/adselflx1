@@ -83,6 +83,7 @@
         <activity android:name=".activity.EventBusActivity" />
         <activity android:name=".activity.MDWidgetActivity" />
         <activity android:name=".activity.CoordinateTestActivity" />
+        <activity android:name=".activity.FilterMenuActivity" />
     </application>
 
 </manifest>

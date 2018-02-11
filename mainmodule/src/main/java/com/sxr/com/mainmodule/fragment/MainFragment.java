@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.activity.CoordinateTestActivity;
 import com.sxr.com.mainmodule.activity.EventBusActivity;
+import com.sxr.com.mainmodule.activity.FilterMenuActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,7 +59,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), EventBusActivity.class);
+                intent.setClass(getActivity(), FilterMenuActivity.class);
                 startActivity(intent);
             }
         });
