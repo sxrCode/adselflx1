@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -22,14 +24,18 @@ public class AnimationTestFragment extends Fragment {
 
     private View mTestView;
     private View mLevelView;
+    private Button mAnimBtn;
+    private FrameLayout mContentArea;
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_animation_test, container, false);
         mTestView = view.findViewById(R.id.anim_test_view);
-        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_animation_test);
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_enter);
+        animation.setDuration(1000);
         mTestView.startAnimation(animation);
+
 
         mLevelView = view.findViewById(R.id.level_test_view);
         Drawable background = mLevelView.getBackground();
@@ -54,7 +60,55 @@ public class AnimationTestFragment extends Fragment {
                 });
             }
         });
+
+        mContentArea = view.findViewById(R.id.pop_content);
+
+        mAnimBtn = view.findViewById(R.id.anim_btn);
+        mAnimBtn.setOnClickListener(new View.OnClickListener() {
+            private View popView;
+
+            @Override
+            public void onClick(View v) {
+                if (popView == null) {
+                    popView = getPopView();
+                    mContentArea.addView(popView);
+                }
+
+                Button exitBtn = popView.findViewById(R.id.exit_btn);
+                exitBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        exit();
+                    }
+                });
+                enter();
+            }
+
+            private void exit() {
+                if (popView != null) {
+                    Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_exit);
+                    animation.setDuration(1000);
+                    animation.setFillAfter(true);
+                    popView.startAnimation(animation);
+                    mContentArea.removeView(popView);
+                    popView = null;
+                }
+            }
+
+            private void enter() {
+                if (popView != null) {
+                    Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_enter);
+                    animation.setDuration(1000);
+                    popView.startAnimation(animation);
+                }
+            }
+        });
+
         return view;
+    }
+
+    private View getPopView() {
+        return LayoutInflater.from(getActivity()).inflate(R.layout.sub_popview, mContentArea, false);
     }
 
 

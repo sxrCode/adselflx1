@@ -27,6 +27,7 @@ public class DialogTestActivity extends SingleFragmentActivity {
         lp.height = screenHeight / 2;
         window.setAttributes(lp);
 */
+
         return super.onCreateView(name, context, attrs);
     }
 }

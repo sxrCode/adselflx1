@@ -11,9 +11,10 @@
         android:background="@color/blue_sky" />
 
     <Button
+        android:id="@+id/anim_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="color"
+        android:text="anim"
         android:textColor="@color/button_state_color" />
 
     <View
@@ -22,16 +23,10 @@
         android:layout_height="130dp"
         android:background="@drawable/layer_test" />
 
-    <TextView
-        android:layout_width="41dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_test"
-        android:text="@string/select_date" />
-
-    <com.sxr.com.mainmodule.view.CodeView
+    <FrameLayout
+        android:id="@+id/pop_content"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="numberPassword"
-        android:textSize="25sp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
 
 </LinearLayout>
