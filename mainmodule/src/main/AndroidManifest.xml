@@ -84,6 +84,7 @@
         <activity android:name=".activity.MDWidgetActivity" />
         <activity android:name=".activity.CoordinateTestActivity" />
         <activity android:name=".activity.FilterMenuActivity" />
+        <activity android:name=".activity.MultiFragmentActivity" />
     </application>
 
 </manifest>
