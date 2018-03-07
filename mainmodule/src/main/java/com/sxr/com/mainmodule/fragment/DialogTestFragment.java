@@ -43,7 +43,7 @@ public class DialogTestFragment extends Fragment {
         return view;
     }
 
-    private void initButton(View view) {
+    private void initButton(final View view) {
 
         final Context activity = getActivity();
 
@@ -134,9 +134,10 @@ public class DialogTestFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 PayBottomDialog dialog = new PayBottomDialog(activity);
-                //View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.content_pay_code, dialog.getContentContainer(), false);
-                //dialog.setContent(view1);
                 dialog.show();
+
+                View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.content_pay_code, dialog.getContentContainer(), false);
+                dialog.getContentContainer().addView(view1);
             }
         });
     }

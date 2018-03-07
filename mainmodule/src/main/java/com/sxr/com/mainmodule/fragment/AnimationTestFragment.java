@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.sxr.com.mainmodule.R;
+import com.sxr.com.mainmodule.view.PayBottomDialog;
 
 
 public class AnimationTestFragment extends Fragment {
@@ -25,7 +25,6 @@ public class AnimationTestFragment extends Fragment {
     private View mTestView;
     private View mLevelView;
     private Button mAnimBtn;
-    private FrameLayout mContentArea;
 
     @Nullable
     @Override
@@ -61,52 +60,78 @@ public class AnimationTestFragment extends Fragment {
             }
         });
 
-        mContentArea = view.findViewById(R.id.pop_content);
 
         mAnimBtn = view.findViewById(R.id.anim_btn);
         mAnimBtn.setOnClickListener(new View.OnClickListener() {
-            private View popView;
+            private ViewGroup popContainer;
+            private View payView;
 
             @Override
             public void onClick(View v) {
-                if (popView == null) {
-                    popView = getPopView();
-                    mContentArea.addView(popView);
-                }
+                PayBottomDialog dialog = new PayBottomDialog(getActivity());
+                dialog.show();
 
-                Button exitBtn = popView.findViewById(R.id.exit_btn);
-                exitBtn.setOnClickListener(new View.OnClickListener() {
+                popContainer = dialog.getContentContainer();
+                View selectPage = LayoutInflater.from(getActivity()).inflate(R.layout.content_pay_code, popContainer, false);
+                popContainer.addView(selectPage);
+
+
+                Button nextBtn = selectPage.findViewById(R.id.next_btn);
+                nextBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        exit();
+                        enter();
                     }
                 });
-                enter();
+
             }
 
-            private void exit() {
-                if (popView != null) {
-                    Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_exit);
-                    animation.setFillAfter(true);
-                    popView.startAnimation(animation);
-                    mContentArea.removeView(popView);
-                    popView = null;
-                }
+            private View createPayView(ViewGroup container) {
+                final View pay = LayoutInflater.from(getActivity()).inflate(R.layout.sub_popview, container, false);
+                container.addView(pay);
+                pay.setClickable(true);
+                Button exitBtn = pay.findViewById(R.id.exit_btn);
+                exitBtn.setOnClickListener(new View.OnClickListener() {
+                    private View parentView = pay;
+
+                    @Override
+                    public void onClick(View v) {
+                        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_exit);
+                        animation.setFillAfter(true);
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                popContainer.removeView(parentView);
+                                parentView = null;
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
+                        parentView.startAnimation(animation);
+                    }
+                });
+
+                return pay;
             }
 
             private void enter() {
-                if (popView != null) {
+                if (popContainer != null) {
+                    payView = createPayView(popContainer);
                     Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_enter);
-                    popView.startAnimation(animation);
+                    payView.startAnimation(animation);
                 }
             }
         });
 
         return view;
-    }
-
-    private View getPopView() {
-        return LayoutInflater.from(getActivity()).inflate(R.layout.sub_popview, mContentArea, false);
     }
 
 

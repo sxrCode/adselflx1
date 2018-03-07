@@ -2,7 +2,7 @@ package com.sxr.com.mainmodule.view;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 
 import com.flyco.animation.SlideEnter.SlideBottomEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
@@ -12,7 +12,7 @@ import com.sxr.com.mainmodule.R;
 
 public class PayBottomDialog extends BottomBaseDialog<PayBottomDialog> {
 
-    private FrameLayout mContentContainer;
+    private ViewGroup mContentContainer;
     private View mContent;
 
     public PayBottomDialog(Context context, View animateView) {
@@ -38,13 +38,15 @@ public class PayBottomDialog extends BottomBaseDialog<PayBottomDialog> {
 
     @Override
     public void setUiBeforShow() {
+        /*
         if (mContentContainer != null && mContent != null) {
             mContentContainer.removeAllViews();
             mContentContainer.addView(mContent);
         }
+        */
     }
 
-    public FrameLayout getContentContainer() {
+    public ViewGroup getContentContainer() {
         return mContentContainer;
     }
 }
