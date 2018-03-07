@@ -87,7 +87,6 @@ public class AnimationTestFragment extends Fragment {
             private void exit() {
                 if (popView != null) {
                     Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_exit);
-                    animation.setDuration(1000);
                     animation.setFillAfter(true);
                     popView.startAnimation(animation);
                     mContentArea.removeView(popView);
@@ -98,7 +97,6 @@ public class AnimationTestFragment extends Fragment {
             private void enter() {
                 if (popView != null) {
                     Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.view_hor_enter);
-                    animation.setDuration(1000);
                     popView.startAnimation(animation);
                 }
             }
