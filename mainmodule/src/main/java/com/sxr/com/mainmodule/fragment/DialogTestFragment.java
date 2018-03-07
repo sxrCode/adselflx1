@@ -38,7 +38,7 @@ public class DialogTestFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dialog, container, false);
+        View view = inflater.inflate(R.layout.fragment_dialog_test, container, false);
         initButton(view);
         return view;
     }
@@ -134,8 +134,8 @@ public class DialogTestFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 PayBottomDialog dialog = new PayBottomDialog(activity);
-                View content = View.inflate(dialog.getContext(), R.layout.content_pay_code, null);
-                //dialog.setContent(content);
+                //View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.content_pay_code, dialog.getContentContainer(), false);
+                //dialog.setContent(view1);
                 dialog.show();
             }
         });

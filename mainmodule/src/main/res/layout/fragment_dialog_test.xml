@@ -32,6 +32,6 @@
         android:id="@+id/dialog_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dialog1" />
+        android:text="dialog_e" />
 
 </LinearLayout>

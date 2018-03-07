@@ -27,8 +27,7 @@ public class PayBottomDialog extends BottomBaseDialog<PayBottomDialog> {
     public View onCreateView() {
         showAnim(new SlideBottomEnter());
         dismissAnim(new SlideBottomExit());
-
-        View view = View.inflate(mContext, R.layout.bottom_dialog_pay_confirm, null);
+        View view = View.inflate(mContext, R.layout.bottom_dialog_container, null);
         mContentContainer = view.findViewById(R.id.dialog_content);
         return view;
     }
@@ -43,5 +42,9 @@ public class PayBottomDialog extends BottomBaseDialog<PayBottomDialog> {
             mContentContainer.removeAllViews();
             mContentContainer.addView(mContent);
         }
+    }
+
+    public FrameLayout getContentContainer() {
+        return mContentContainer;
     }
 }
