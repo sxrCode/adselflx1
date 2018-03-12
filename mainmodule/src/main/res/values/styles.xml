@@ -30,4 +30,11 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="text_list_condition_selected">
+        <item name="android:layout_marginRight">@dimen/view_normal_margin</item>
+        <item name="android:background">@drawable/txt_border_blue</item>
+        <item name="android:textColor">@color/blue10</item>
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
 </resources>

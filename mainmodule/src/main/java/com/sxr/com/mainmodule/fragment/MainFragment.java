@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sxr.com.mainmodule.R;
-import com.sxr.com.mainmodule.activity.DialogTestActivity;
+import com.sxr.com.mainmodule.activity.FlowLayoutManagerActivity;
 import com.sxr.com.mainmodule.activity.MultiFragmentActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
@@ -48,7 +48,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), DialogTestActivity.class);
+                intent.setClass(getActivity(), FlowLayoutManagerActivity.class);
                 startActivity(intent);
             }
         });

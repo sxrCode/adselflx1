@@ -85,6 +85,7 @@
         <activity android:name=".activity.CoordinateTestActivity" />
         <activity android:name=".activity.FilterMenuActivity" />
         <activity android:name=".activity.MultiFragmentActivity" />
+        <activity android:name=".activity.FlowLayoutManagerActivity" />
     </application>
 
 </manifest>

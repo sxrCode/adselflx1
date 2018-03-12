@@ -7,4 +7,54 @@
     <dimen name="card_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_avatar_size">40dp</dimen>
+
+    <!-- padding -->
+    <dimen name="view_normal_padding">3dp</dimen>
+    <dimen name="view_normal_padding_2x">6dp</dimen>
+    <dimen name="view_normal_padding_3x">9dp</dimen>
+    <dimen name="view_normal_padding_4x">12dp</dimen>
+    <dimen name="view_normal_padding_5x">15dp</dimen>
+
+    <!-- margin -->
+    <dimen name="view_normal_margin">5dp</dimen>
+    <dimen name="view_normal_margin_2x">10dp</dimen>
+    <dimen name="view_normal_margin_3x">15dp</dimen>
+    <dimen name="view_normal_margin_4x">20dp</dimen>
+    <dimen name="view_normal_margin_8x">40dp</dimen>
+
+    <!-- height -->
+    <dimen name="zero_height">0dp</dimen>
+
+    <dimen name="underline_height">1dp</dimen>
+
+    <dimen name="topbar_space">55dp</dimen>
+
+    <dimen name="split_line_height">2dp</dimen>
+
+    <dimen name="split_view_height">5dp</dimen>
+    <dimen name="split_line_height_2x">10dp</dimen>
+    <dimen name="split_line_height_3x">15dp</dimen>
+    <dimen name="split_line_height_4x">20dp</dimen>
+
+    <dimen name="view_normal_height">5dp</dimen>
+    <dimen name="view_normal_height_2x">10dp</dimen>
+    <dimen name="view_normal_height_3x">15dp</dimen>
+    <dimen name="view_normal_height_4x">20dp</dimen>
+    <dimen name="view_normal_height_6x">30dp</dimen>
+
+    <dimen name="view_normal_width">5dp</dimen>
+
+    <!-- radius -->
+    <dimen name="samll_radius">2dp</dimen>
+    <dimen name="samll_radius_2x">4dp</dimen>
+    <dimen name="normal_radius">5dp</dimen>
+    <dimen name="big_radius">7dp</dimen>
+
+    <dimen name="font_big">28sp</dimen>
+    <dimen name="font_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">15sp</dimen>
+    <dimen name="font_normal1">16sp</dimen>
+    <dimen name="font_normal2">17sp</dimen>
+    <dimen name="font_small">12sp</dimen>
 </resources>

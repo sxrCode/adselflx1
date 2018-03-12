@@ -45,4 +45,7 @@ dependencies {
     //日志
     compile 'com.orhanobut:logger:1.15'
 
+    //https://github.com/BelooS/ChipsLayoutManager
+    compile 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
+
 }
