@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/test_title"
-        android:alpha="0.2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:background="@color/blue_sky"/>
+        android:alpha="0.2"
+        android:background="@color/blue_sky"
+        android:text="@string/app_name" />
 
     <Button
         android:id="@+id/execute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="exevute"/>
+        android:text="exevute" />
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:switchMinWidth="20dp"
+        android:textOff="1  "
+        android:textOn="  "
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track" />
 </LinearLayout>

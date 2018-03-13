@@ -23,6 +23,15 @@
         android:layout_height="130dp"
         android:background="@drawable/layer_test" />
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:switchMinWidth="20dp"
+        android:textOff="  "
+        android:textOn="  "
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track" />
+
     <FrameLayout
         android:id="@+id/pop_content"
         android:layout_width="match_parent"

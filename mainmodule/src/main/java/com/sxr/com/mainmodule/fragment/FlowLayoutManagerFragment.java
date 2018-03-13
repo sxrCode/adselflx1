@@ -33,7 +33,7 @@ public class FlowLayoutManagerFragment extends Fragment {
     private void initRecyclerView() {
         ChipsLayoutManager chipsLayoutManager = ChipsLayoutManager.newBuilder(getActivity())
                 //set vertical gravity for all items in a row. Default = Gravity.CENTER_VERTICAL
-                .setChildGravity(Gravity.TOP)
+                .setChildGravity(Gravity.CENTER_VERTICAL)
                 //whether RecyclerView can scroll. TRUE by default
                 .setScrollingEnabled(true)
                 //set maximum views count in a particular row
