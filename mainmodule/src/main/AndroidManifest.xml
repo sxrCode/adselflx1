@@ -86,6 +86,8 @@
         <activity android:name=".activity.FilterMenuActivity" />
         <activity android:name=".activity.MultiFragmentActivity" />
         <activity android:name=".activity.FlowLayoutManagerActivity" />
+        <activity android:name=".activity.FileChooserActivity" />
+        <activity android:name=".activity.DatePickerLoopActivity" />
     </application>
 
 </manifest>
