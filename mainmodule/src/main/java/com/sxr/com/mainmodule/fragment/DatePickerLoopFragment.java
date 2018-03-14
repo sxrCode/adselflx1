@@ -47,6 +47,7 @@ public class DatePickerLoopFragment extends Fragment {
                 pickerPopWin.showPopWin(mActivity);
             }
         });
+        
         return view;
     }
 }
