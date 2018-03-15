@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.activity.FileChooserActivity;
+import com.sxr.com.mainmodule.activity.NestedTestActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
-import com.sxr.com.mainmodule.swipemenu.SwipeMainActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -58,7 +58,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), SwipeMainActivity.class);
+                intent.setClass(getActivity(), NestedTestActivity.class);
                 startActivity(intent);
             }
         });
