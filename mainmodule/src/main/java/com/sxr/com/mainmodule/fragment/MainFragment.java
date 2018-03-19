@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sxr.com.mainmodule.R;
+import com.sxr.com.mainmodule.activity.BigImagTestActivity;
 import com.sxr.com.mainmodule.activity.FileChooserActivity;
 import com.sxr.com.mainmodule.activity.NestedTestActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
@@ -48,7 +49,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), FileChooserActivity.class);
+                intent.setClass(getActivity(), BigImagTestActivity.class);
                 startActivity(intent);
             }
         });

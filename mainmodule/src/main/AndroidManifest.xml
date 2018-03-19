@@ -89,6 +89,7 @@
         <activity android:name=".activity.FileChooserActivity" />
         <activity android:name=".activity.DatePickerLoopActivity" />
         <activity android:name=".activity.NestedTestActivity" />
+        <activity android:name=".activity.BigImagTestActivity" />
     </application>
 
 </manifest>
