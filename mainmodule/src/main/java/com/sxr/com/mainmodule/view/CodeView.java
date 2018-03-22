@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.InputFilter;
 import android.util.AttributeSet;
+import android.view.inputmethod.InputMethodManager;
 
 import com.sxr.com.mainmodule.R;
 
@@ -64,6 +65,11 @@ public class CodeView extends AppCompatEditText {
             mCharCount = text.toString().length();
             mContent = text.toString();
             if (mCharCount == mContentCount) {
+                InputMethodManager inputMethodManager = (InputMethodManager)
+                        getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (inputMethodManager != null) {
+                    inputMethodManager.hideSoftInputFromWindow(this.getWindowToken(), 0);
+                }
                 if (mCodeListener != null) {
                     mCodeListener.onFinish(text.toString());
                 }

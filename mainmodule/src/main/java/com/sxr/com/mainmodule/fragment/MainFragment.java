@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.activity.BigImagTestActivity;
-import com.sxr.com.mainmodule.activity.FileChooserActivity;
-import com.sxr.com.mainmodule.activity.NestedTestActivity;
+import com.sxr.com.mainmodule.activity.CircleEdgeTesActivity;
+import com.sxr.com.mainmodule.activity.CrimePagerActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
 import org.greenrobot.eventbus.EventBus;
@@ -49,7 +50,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), BigImagTestActivity.class);
+                intent.setClass(getActivity(), CrimePagerActivity.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +60,8 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), NestedTestActivity.class);
+                intent.setClass(getActivity(), CircleEdgeTesActivity.class);
+                Logger.e("click false button!");
                 startActivity(intent);
             }
         });
