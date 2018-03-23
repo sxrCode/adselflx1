@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.view.FullScreenDialog;
 
 
 public class MyDialogFragment extends DialogFragment {
+
+    private Button mChooserBtn;
+
+    private MyDialogFragmentDelegate mDelegate;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,7 +31,20 @@ public class MyDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_file_chooser, container, false);
         //return super.onCreateView(inflater, container, savedInstanceState);
+        initWidget(view);
         return view;
+    }
+
+    private void initWidget(View root) {
+        mChooserBtn = root.findViewById(R.id.file_chooser_btn);
+        mChooserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mDelegate != null) {
+                    mDelegate.choose();
+                }
+            }
+        });
     }
 
     @NonNull
@@ -36,5 +54,13 @@ public class MyDialogFragment extends DialogFragment {
         fullScreenDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         fullScreenDialog.setContentView(R.layout.fragment_animator_test);
         return fullScreenDialog;
+    }
+
+    public void setDelegate(MyDialogFragmentDelegate delegate) {
+        mDelegate = delegate;
+    }
+
+    public interface MyDialogFragmentDelegate {
+        public void choose();
     }
 }

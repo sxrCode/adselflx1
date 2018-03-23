@@ -20,18 +20,22 @@ public class FullScreenDialog extends Dialog {
     @Override
     public void setContentView(@NonNull View view) {
         super.setContentView(view);
-        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        initProperty();
     }
 
     @Override
     public void setContentView(@NonNull View view, @Nullable ViewGroup.LayoutParams params) {
         super.setContentView(view, params);
-        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        initProperty();
     }
 
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+        initProperty();
+    }
+
+    private void initProperty() {
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);

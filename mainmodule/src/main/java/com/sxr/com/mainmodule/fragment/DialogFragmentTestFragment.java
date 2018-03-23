@@ -11,7 +11,6 @@ import android.widget.Button;
 import com.sxr.com.mainmodule.R;
 
 public class DialogFragmentTestFragment extends Fragment {
-
     private Button mButton;
 
     @Nullable
@@ -33,7 +32,13 @@ public class DialogFragmentTestFragment extends Fragment {
     }
 
     private void createMyDialogFragment() {
-        MyDialogFragment myDialogFragment = new MyDialogFragment();
+        final MyDialogFragment myDialogFragment = new MyDialogFragment();
+        myDialogFragment.setDelegate(new MyDialogFragment.MyDialogFragmentDelegate() {
+            @Override
+            public void choose() {
+                myDialogFragment.dismiss();
+            }
+        });
         /*
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.view_ver_enter, R.anim.view_ver_exit);
