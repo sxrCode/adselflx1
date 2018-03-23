@@ -94,6 +94,7 @@
         <activity
             android:name=".activity.CircleEdgeTesActivity"
             android:hardwareAccelerated="false" />
+        <activity android:name=".activity.DialogFragmentTestActivity" />
     </application>
 
 </manifest>

@@ -12,9 +12,8 @@ import android.widget.TextView;
 
 import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.R;
-import com.sxr.com.mainmodule.activity.BigImagTestActivity;
 import com.sxr.com.mainmodule.activity.CircleEdgeTesActivity;
-import com.sxr.com.mainmodule.activity.CrimePagerActivity;
+import com.sxr.com.mainmodule.activity.DialogFragmentTestActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
 import org.greenrobot.eventbus.EventBus;
@@ -50,7 +49,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), CrimePagerActivity.class);
+                intent.setClass(getActivity(), DialogFragmentTestActivity.class);
                 startActivity(intent);
             }
         });
