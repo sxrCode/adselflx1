@@ -6,7 +6,6 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -93,7 +92,7 @@
         <activity android:name=".activity.BigImagTestActivity" />
         <activity
             android:name=".activity.CircleEdgeTesActivity"
-            android:hardwareAccelerated="false" />
+            android:theme="@style/AppTheme.Pop" />
         <activity android:name=".activity.DialogFragmentTestActivity" />
     </application>
 

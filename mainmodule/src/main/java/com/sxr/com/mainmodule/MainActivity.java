@@ -5,11 +5,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.sxr.com.mainmodule.activity.SingleFragmentActivity;
-import com.sxr.com.mainmodule.event.MsgEvent11;
 import com.sxr.com.mainmodule.fragment.MainFragment;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends SingleFragmentActivity {
 
