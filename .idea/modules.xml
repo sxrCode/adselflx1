@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/adselflx1.iml" filepath="$PROJECT_DIR$/adselflx1.iml" />
       <module fileurl="file://$PROJECT_DIR$/mainmodule/mainmodule.iml" filepath="$PROJECT_DIR$/mainmodule/mainmodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
     </modules>
   </component>
 </project>
