@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.view.FullScreenDialog;
@@ -19,6 +21,8 @@ public class MyDialogFragment extends DialogFragment {
     private Button mChooserBtn;
 
     private MyDialogFragmentDelegate mDelegate;
+
+    private FrameLayout mContainer;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +38,12 @@ public class MyDialogFragment extends DialogFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        
+        mContainer = view.findViewById(R.id.dialog_content);
+        getChildFragmentManager().beginTransaction().add(R.id.dialog_content, getFragment()).setCustomAnimations(R.anim.dialog_enter, R.anim.dialog_exit).commit();
+    }
+
+    private Fragment getFragment() {
+        return new DatePickerFragment();
     }
 
     @NonNull
