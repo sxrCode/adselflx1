@@ -94,6 +94,7 @@
             android:name=".activity.CircleEdgeTesActivity"
             android:theme="@style/AppTheme.Pop" />
         <activity android:name=".activity.DialogFragmentTestActivity" />
+        <activity android:name=".activity.NineCodeActivity" />
     </application>
 
 </manifest>

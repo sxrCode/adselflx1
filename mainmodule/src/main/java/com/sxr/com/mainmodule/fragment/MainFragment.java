@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.orhanobut.logger.Logger;
 import com.sxr.com.mainmodule.R;
 import com.sxr.com.mainmodule.activity.CircleEdgeTesActivity;
-import com.sxr.com.mainmodule.activity.DialogFragmentTestActivity;
+import com.sxr.com.mainmodule.activity.NineCodeActivity;
 import com.sxr.com.mainmodule.event.MsgEvent11;
 
 import org.greenrobot.eventbus.EventBus;
@@ -49,7 +49,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), DialogFragmentTestActivity.class);
+                intent.setClass(getActivity(), NineCodeActivity.class);
                 startActivity(intent);
             }
         });

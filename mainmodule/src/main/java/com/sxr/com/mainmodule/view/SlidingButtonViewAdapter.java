@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sxr.com.mainmodule.R;
-import com.sxr.com.mainmodule.utils.Utils;
+import com.sxr.com.mainmodule.utils.MetricUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class SlidingButtonViewAdapter extends RecyclerView.Adapter<SlidingButton
 
         holder.textView.setText(mDatas.get(position));
         //设置内容布局的宽为屏幕宽度
-        holder.layout_content.getLayoutParams().width = Utils.getScreenWidth(mContext);
+        holder.layout_content.getLayoutParams().width = MetricUtils.getScreenWidth(mContext);
 
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
