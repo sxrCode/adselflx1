@@ -239,10 +239,9 @@ public class NineCodeView extends View {
     }
 
     private void finish() {
-
-
         if (selectedCodes.size() > 0) {
-            Log.e("ninecode", selectedCodes.toString());
+            String code = getCode();
+            Log.e("ninecode", code);
             currentPointX = -1;
             currentPointY = -1;
 
@@ -302,6 +301,15 @@ public class NineCodeView extends View {
         if (result > 8) result = -1;
 
         return result;
+    }
+
+    private String getCode() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer integer : selectedCodes) {
+            stringBuilder.append(integer);
+        }
+
+        return stringBuilder.toString();
     }
 
 }
